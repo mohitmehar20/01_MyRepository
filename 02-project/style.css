@@ -312,6 +312,22 @@ h2 {
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width:800px) {
+
+    .recipes {
+        grid-template-columns: repeat(2, auto);
+        width: 80%;
+        margin: auto;
+    }
+
+    .recipes>img {
+        width: 100%;
+
+
+    }
+}
+
+
 footer {
     height: 200px;
     background-color: var(--primaryColor);
