@@ -4,6 +4,9 @@ let operator = null;
 
 // Functions to handle button clicks and perform calculations
 function appendNumber(number) {
+  if (num1 != "0" && num2 != "0" && operator != null) {
+    calculate()
+  }
   if (number == "+" || number == "-" || number == "*" || number == "/") {
     operator = number;
     document.querySelector("#calculatorDisplay").innerHTML = document.querySelector("#calculatorDisplay").innerHTML + number;
@@ -32,25 +35,21 @@ function appendNumber(number) {
 }
 let result;
 function add() {
-  // Implement addition logic
   result = parseInt(num1) + parseInt(num2);
   return result;
 }
 
 function subtract() {
-  // Implement subtraction logic
   result = parseInt(num1) - parseInt(num2);
   return result;
 }
 
 function multiply() {
-  // Implement multiplication logic
   result = parseInt(num1) * parseInt(num2);
   return result;
 }
 
 function divide() {
-  // Implement division logic
   result = parseInt(num1) / parseInt(num2);
   return result;
 }
@@ -60,19 +59,15 @@ function calculate() {
   switch (operator) {
     case "+":
       result = add();
-      // console.log(result);
       break;
     case "-":
       result = subtract();
-      // console.log(result);
       break;
     case "*":
       result = multiply();
-      // console.log(result);
       break;
     case "/":
       result = divide();
-      // console.log(result);
       break;
 
     default:
@@ -83,6 +78,7 @@ function calculate() {
   operator = null;
   document.querySelector("#calculatorDisplay").innerHTML = `${result}`;
 }
+
 function clearDisplay() {
   num1 = "0";
   num2 = "0";
