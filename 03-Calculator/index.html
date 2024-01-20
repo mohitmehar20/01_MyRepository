@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <style>
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+      *{
+        box-sizing: border-box;
+        margin: 0%;
+        padding: 0%;
+      }
+      .calculator{
+        margin: auto;
+        border-radius: 20px;
+        border: 3px solid gray;
+        max-width: 500px;
+        padding: 20px;
+        background-color: #313131;
+      }
+      #calculatorDisplay {
+        font-family: 'Concert One', sans-serif;
+        text-align: right;
+        font-size: 2rem;
+        color: #474747;
+        background-color: rgb(203, 193, 193);
+        border: 3px solid rgb(142, 137, 137);
+        height: 40px;
+        border-radius: 5px;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      button{
+        font-weight: bolder;
+        height: 40px;
+        max-width: 114px;
+      }
+      #calculatorBtn {
+        
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+      }
+      #multiply {
+        grid-area: 4/4;
+      }
+      #divide {
+        grid-area: 3/4;
+      }
+      #sub {
+        grid-area: 2/4;
+      }
+      #add {
+        grid-area: 1/4;
+      }
+      #clr {
+        grid-area: 4/2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+    <!-- Display area -->
+    <div id="calculatorDisplay"></div>
+
+    <!-- Buttons -->
+    <div id="calculatorBtn">
+      <button id="1" onclick="appendNumber('1')">1</button>
+      <button id="2" onclick="appendNumber('2')">2</button>
+      <button id="3" onclick="appendNumber('3')">3</button>
+      <button id="4" onclick="appendNumber('4')">4</button>
+      <button id="5" onclick="appendNumber('5')">5</button>
+      <button id="6" onclick="appendNumber('6')">6</button>
+      <button id="7" onclick="appendNumber('7')">7</button>
+      <button id="8" onclick="appendNumber('8')">8</button>
+      <button id="9" onclick="appendNumber('9')">9</button>
+      <button id="0" onclick="appendNumber('0')">0</button>
+      <!-- ... (repeat for other digits) -->
+
+      <button id="add" onclick="appendNumber('+')">+</button>
+      <button id="sub" onclick="appendNumber('-')">-</button>
+      <button id="multiply" onclick="appendNumber('*')">*</button>
+      <button id="divide" onclick="appendNumber('/')">/</button>
+
+      <button id="cal" onclick="calculate()">=</button>
+      <button id="clr" onclick="clearDisplay()">Clear</button>
+    </div>
+  </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
