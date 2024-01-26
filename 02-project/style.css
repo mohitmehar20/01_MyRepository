@@ -16,6 +16,11 @@ main {
     gap: 20px;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
 header {
 
     /* border: 2px solid; */
@@ -37,6 +42,7 @@ header {
 .logo {
 
     /* border: 2px solid; */
+    width: 20%;
     display: flex;
     margin: 8px;
     justify-content: center;
@@ -63,6 +69,28 @@ header {
     font-size: 2.4rem;
     font-weight: bolder;
     color: rgb(201, 142, 34);
+}
+
+nav {
+
+    /* border: 2px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    margin: 0px 12px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: grey;
+    transition: all .1s linear;
+}
+
+nav a:hover {
+    translate: 0px -2px;
+    text-decoration: underline;
+    color: rgb(69, 58, 58);
 }
 
 .social-medias {
@@ -92,51 +120,25 @@ header {
     translate: 0px -2px;
 }
 
-nav {
-
-    /* border: 2px solid; */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav a {
-    margin: 0px 12px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: grey;
-    transition: all .1s linear;
-}
-
-nav a:hover {
-    translate: 0px -2px;
-    text-decoration: underline;
-    color: rgb(69, 58, 58);
-}
-
-@media only screen and (max-width:800px) {
-
-    body {
-        width: 800px;
-    }
-
-
-}
-
 .kitchen {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+    background-image: url(img/kitchen-section.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: max(1300px, 100vw);
+    height: 80vh;
+    width: 100%;
+    position: relative;
+
 
 }
 
-.kitchen img {
-    /* position: absolute; */
-    z-index: -1;
+.kitchen>.box {
+    height: 80vh;
     width: 100%;
-    filter: brightness(45%);
+    position: absolute;
+    top: 0;
+    background-color: black;
+    opacity: .69;
 }
 
 .kitchen h2 {
@@ -154,27 +156,16 @@ nav a:hover {
     flex-direction: column;
     gap: 15px;
     align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 30%;
+    bottom: 0px;
     color: #e6dbc3;
-    margin-top: 10px;
+    z-index: 1;
+    margin: auto;
+    width: 100%;
+    padding: 20px
 }
 
-@media only screen and (max-width:800px) {
-
-    .kitchen-text {
-        width: 680px;
-    }
-}
-
-@media only screen and (max-width:1080px) {
-
-    .kitchen-text {
-        top: 20%;
-    }
-
-
-}
 
 .read-more-btn {
     width: 90px;
@@ -237,15 +228,6 @@ h2 {
 
 .taste-text>p {
     font-size: 0.85rem;
-}
-
-@media only screen and (max-width:800px) {
-
-    .taste {
-        grid-template-columns: repeat(2, auto);
-        width: 85%;
-        margin: auto;
-    }
 }
 
 .blogs-section {
@@ -312,20 +294,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-@media only screen and (max-width:800px) {
-
-    .recipes {
-        grid-template-columns: repeat(2, auto);
-        width: 80%;
-        margin: auto;
-    }
-
-    .recipes>img {
-        width: 100%;
-
-
-    }
-}
 
 
 footer {
@@ -360,4 +328,93 @@ footer {
 
 .footer-social-medias img {
     opacity: 50%;
+}
+
+@media only screen and (max-width:790px) {
+
+    .recipes {
+        width: 90vw;
+        /* margin: auto; */
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        /* margin-bottom: 20px; */
+    }
+
+    .recipes>img {
+        width: 100%;
+        transition: all .1s linear;
+        filter: brightness(70%);
+    }
+
+    .taste {
+        grid-template-columns: repeat(2, auto)
+    }
+
+    .social-medias {
+        display: none;
+    }
+
+    @media only screen and (max-width:570px) {
+        .taste {
+            grid-template-columns: repeat(1, auto);
+            text-align:left;
+        }
+        .taste img{
+            width: 50px;
+        }
+
+        /* nav{
+            display: none;
+        } */
+        nav a {
+            font-size: .7rem;
+            margin: 0px;
+            padding: 3px
+        }
+
+        header {
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        .logo {
+
+            /* border: 2px solid; */
+            width: 20%;
+            display: flex;
+            margin: 3px;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .logo img {
+
+            width: 3rem;
+            opacity: 70%;
+            transition: all .15s;
+        }
+
+        .kitchen {
+            height: 60vh;
+            background-size: cover;
+
+        }
+
+        .kitchen>.box {
+            height: 60vh;
+        }
+    }
+    @media only screen and (max-width:500px){
+        footer>.logo{
+            /* width: 20px; */
+            display: none;
+        }
+    }
+    @media only screen and (max-width:350px){
+        footer{
+           font-size: 12px;
+        }
+    }
 }
