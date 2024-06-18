@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+
 
 
 
@@ -7,14 +8,29 @@ function TodoList() {
     const [Todo, setTodo] = useState('')
     const [Todos, setTodos] = useState([])
 
+    useEffect(() => {
+        let todoString = localStorage.getItem("todos")
+        if (todoString) {
+            let todos = JSON.parse(localStorage.getItem("todos"))
+            setTodos(todos)
+        }
+    }, [])
+
+    const saveToLocalStorage = (params) => {
+        localStorage.setItem("todos", JSON.stringify(Todos))
+    }
+
+
     const addTodo = () => {
-        if (Todo === '') {
-            return
+        if (Todo.length <= 3) {
+            alert("Todo must contain atleast 4 letters")
         }
         else {
-            setTodos([...Todos, { Todo, isCompleted: false, id: uuidv4() }])
+
+            setTodos([...Todos, { Todo, id: uuidv4() }])
             setTodo('')
         }
+        saveToLocalStorage()
     }
 
     const handleEdit = (e, id) => {
@@ -22,12 +38,13 @@ function TodoList() {
         setTodo(t[0].Todo)
         const newTodos = Todos.filter(i => i.id !== id)
         setTodos(newTodos)
-
+        saveToLocalStorage()
     }
 
     const handleDelete = (e, id) => {
         const newTodos = Todos.filter(i => i.id !== id)
         setTodos(newTodos)
+        saveToLocalStorage()
     }
 
     return (
