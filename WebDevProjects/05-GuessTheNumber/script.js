@@ -9,7 +9,7 @@ let attempts = 10
 let playGame = true
 
 
-    submit.addEventListener('click', function (e) {
+    submit.addEventListener('click', (e)=> {
         if (playGame){
             e.preventDefault();
             const guess = parseInt(userInput.value);
@@ -63,7 +63,7 @@ function checkGuess(guess){
         
     } else if(guess > randomNum) {
         displayResult('GUESS A LOWER NUMBER')
-        
+ 
     }
 }
 
@@ -71,6 +71,13 @@ function updateMessage( attempts , guess){
     userInput.value = '';
     showAttempts.innerHTML = `${attempts}`;
     prevGuesses.innerHTML = prevGuesses.innerHTML + guess + ` | ` ;
+}
+
+function resetMessage(){
+    userInput.value = '';
+    showAttempts.innerHTML = `${attempts}`;
+    prevGuesses.innerHTML = `` ;
+    displayResult('Result')
 }
 
 function displayResult(message) {
@@ -81,7 +88,7 @@ function endGame(){
     startNewGame.style.display = 'block'
     playGame = false
     userInput.setAttribute('disabled', '')
-    // newGame()
+    newGame()
 }
 function newGame(){
     startNewGame.addEventListener('click', ()=>{
@@ -90,7 +97,9 @@ function newGame(){
         startNewGame.style.display = 'none'
         randomNum = parseInt(Math.random()*100 + 1)
         attempts = 10
-        playGame = ture
+        playGame = true
+        resetMessage()
+        
     });
 }
 
