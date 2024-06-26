@@ -120,18 +120,6 @@ void DeleteNode(Node *&head, Node* &tail, int position)
 void print(Node *head)
 {
 
-    // using recursion method
-
-    // if (head->next == NULL)
-    // {
-    //     cout<< head->data;
-    //     return;
-    // }
-
-    // cout<<head->data << " ";
-    // print(head->next);
-
-    // using itrative method
     Node *temp = head;
 
     while (temp != NULL)
