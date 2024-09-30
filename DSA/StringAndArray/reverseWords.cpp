@@ -24,12 +24,24 @@ string reverseStr(string str)
     }
     return str;
 }
+void removeSpace(string &str){
+
+    int cnt = 1;
+    int n = str.size();
+    for (int i = 1; i < n; i++){
+        if(str[i] == ' ' && str[i-1]==' '){
+            str[cnt] = str[i];
+            cnt++;
+        }
+    }    
+}
 
 int main()
 {
 
-    string str = "Mohit is a good boy";
-    cout << reverseStr(str);
+    string str = "Mohit   is a good    boy";
+    removeSpace(str);
+    cout <<str;
 
     return 0;
 }
