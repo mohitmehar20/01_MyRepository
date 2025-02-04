@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -89,6 +90,27 @@ void preOrderTraversal(Node* root){
     preOrderTraversal(root->left);
     preOrderTraversal(root->right);
 }
+// itrative approach
+void preOrderTraversalItrative(Node* root){
+    stack<Node*> st;
+    if(root == NULL){
+        return;
+    }
+    st.push(root);
+    while (!st.empty())
+    {
+        root = st.top();
+        st.pop();
+        cout<<root->data<<" ";
+
+        if(root->right != NULL){
+            st.push(root->right);
+        }
+        if(root->left != NULL){
+            st.push(root->left);
+        }
+    }
+}
 
 void postOrderTraversal(Node* root){
     if(root == NULL){
@@ -115,6 +137,9 @@ int main()
 
     cout<<endl<<"PreOrder traversal :-  ";
     preOrderTraversal(root);
+
+    cout<<endl<<"PreOrder traversal itrative :-  ";
+    preOrderTraversalItrative(root);
 
     cout<<endl<<"PostOrder traversal :-  ";
     postOrderTraversal(root);
